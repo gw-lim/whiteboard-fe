@@ -6,7 +6,7 @@ const getCourses = async () => {
   return data;
 };
 
-export const useGetPosts = () => {
+export const useGetCourses = () => {
   return useQuery({
     queryKey: ['courses'],
     queryFn: getCourses,

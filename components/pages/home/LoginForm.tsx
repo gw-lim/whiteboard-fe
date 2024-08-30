@@ -1,6 +1,7 @@
 import InputContainer from '@/components/commons/InputContainer';
+import { useSignIn } from '@/services/auth';
 import Link from 'next/link';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 interface SignInFormValues {
   username: string;
@@ -8,11 +9,29 @@ interface SignInFormValues {
 }
 
 const LoginForm = () => {
-  const { control } = useForm<SignInFormValues>();
+  const { control, handleSubmit, setError } = useForm<SignInFormValues>({
+    defaultValues: {
+      username: '',
+      password: '',
+    },
+  });
+
+  const handleSignInError = () => {
+    setError('username', { message: '아이디와 비밀번호를 확인해주세요.' });
+    setError('password', { message: '아이디와 비밀번호를 확인해주세요.' });
+  };
+
+  const signIn = useSignIn(handleSignInError);
+
+  const handleSignIn: SubmitHandler<SignInFormValues> = (formValues) => {
+    signIn.mutate(formValues);
+  };
 
   return (
-    <form className='absolute left-[10%] top-1/2 z-floating h-320 w-400 -translate-y-1/2 bg-white/70 px-12 pt-32'>
-      <h1 className='sr-only'>White Board</h1>
+    <form
+      onSubmit={handleSubmit(handleSignIn)}
+      className='absolute left-[10%] top-1/2 z-floating h-320 w-400 -translate-y-1/2 bg-white/70 px-12 pt-32'
+    >
       <InputContainer name='username' control={control}>
         아이디
       </InputContainer>
