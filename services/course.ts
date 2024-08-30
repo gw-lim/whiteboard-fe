@@ -10,6 +10,7 @@ export const useGetCourses = () => {
   return useQuery({
     queryKey: ['courses'],
     queryFn: getCourses,
+    initialData: [],
   });
 };
 
@@ -22,6 +23,7 @@ export const useGetCourse = (courseId: string) => {
   return useQuery({
     queryKey: ['course', courseId],
     queryFn: () => getCourse(courseId),
+    initialData: INITIAL_COURSE,
   });
 };
 
@@ -34,11 +36,13 @@ export const useCreateCourse = () => {
 };
 
 const getRegisteredStudents = async (courseId: string) => {
-  const { data } = await authInstance.get<{
-    id: string;
-    name: string;
-    studentId: string;
-  }>(`/course/${courseId}/students`);
+  const { data } = await authInstance.get<
+    {
+      id: string;
+      name: string;
+      studentId: string;
+    }[]
+  >(`/course/${courseId}/students`);
   return data;
 };
 
@@ -46,6 +50,7 @@ export const useGetRegisteredStudents = (courseId: string) => {
   return useQuery({
     queryKey: ['course', courseId, 'students'],
     queryFn: () => getRegisteredStudents(courseId),
+    initialData: [],
   });
 };
 

@@ -10,6 +10,7 @@ export const useGetPosts = (courseId: string) => {
   return useQuery({
     queryKey: ['post', courseId],
     queryFn: () => getPosts(courseId),
+    initialData: [],
   });
 };
 

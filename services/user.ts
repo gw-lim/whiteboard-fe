@@ -16,7 +16,11 @@ const getUserCourses = async () => {
 };
 
 export const useGetUserCourses = () => {
-  return useQuery({ queryKey: ['user', 'courses'], queryFn: getUserCourses });
+  return useQuery({
+    queryKey: ['user', 'courses'],
+    queryFn: getUserCourses,
+    initialData: [],
+  });
 };
 
 const getUserPosts = async () => {
@@ -25,5 +29,9 @@ const getUserPosts = async () => {
 };
 
 export const useGetUserPosts = () => {
-  return useQuery({ queryKey: ['user', 'posts'], queryFn: getUserPosts });
+  return useQuery({
+    queryKey: ['user', 'posts'],
+    queryFn: getUserPosts,
+    initialData: [],
+  });
 };

@@ -10,8 +10,8 @@ interface UserType {
 interface CourseType {
   id: string;
   name: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   professor: {
     id: string;
     name: string;
@@ -21,6 +21,6 @@ interface CourseType {
 interface PostType {
   id: string;
   content: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
