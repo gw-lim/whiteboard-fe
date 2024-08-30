@@ -1,4 +1,5 @@
 import SignUpFunnel from '@/components/pages/signup/SignUpFunnel';
+import usePreventScroll from '@/hooks/usePreventScroll';
 import Image from 'next/image';
 import { FormProvider, useForm } from 'react-hook-form';
 
@@ -12,6 +13,7 @@ export interface SignUpFormValues {
 }
 
 const SignUp = () => {
+  usePreventScroll();
   const methods = useForm<SignUpFormValues>({
     defaultValues: {
       username: '',
