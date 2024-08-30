@@ -19,7 +19,7 @@ const LoginForm = () => {
       <InputContainer name='password' control={control}>
         비밀번호
       </InputContainer>
-      <button className='rounded-4 mt-12 h-40 w-full border border-gray-400 bg-gray-400/25 text-gray-700'>
+      <button className='rounded-4 mt-12 h-40 w-full border border-slate-800 bg-gray-400/20 text-slate-800'>
         로그인
       </button>
       <div className='text-12 mt-20'>

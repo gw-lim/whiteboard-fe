@@ -5,7 +5,7 @@
   "importOrder": [
     "^hooks/(.*)$",
     "^store/(.*)$",
-    "^apis/(.*)$",
+    "^services/(.*)$",
     "^utils/(.*)$",
     "^types/(.*)$",
     "^pages/(.*)$",
