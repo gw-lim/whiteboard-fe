@@ -5,8 +5,10 @@ import Button from '../Button';
 
 const RoleStep = (props: { handleNextStep: () => void }) => {
   const { handleNextStep } = props;
-  const [role, setRole] = useState<RoleType | undefined>();
-  const { setValue } = useFormContext<SignUpFormValues>();
+  const { getValues, setValue } = useFormContext<SignUpFormValues>();
+
+  const { role: initialRole } = getValues();
+  const [role, setRole] = useState<RoleType | undefined>(initialRole);
 
   useEffect(() => {
     setValue('role', role);

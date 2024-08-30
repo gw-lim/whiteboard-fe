@@ -29,7 +29,10 @@ const SignUpFunnel = () => {
           <RoleStep handleNextStep={handleNextStep} />
         </Step>
         <Step name={SIGN_UP_STEPS[1]}>
-          <PersonalInfoStep handleNextStep={handleNextStep} />
+          <PersonalInfoStep
+            handleNextStep={handleNextStep}
+            handlePrevStep={handlePrevStep}
+          />
         </Step>
         <Step name={SIGN_UP_STEPS[2]}>
           <AccountStep handleNextStep={handleNextStep} />

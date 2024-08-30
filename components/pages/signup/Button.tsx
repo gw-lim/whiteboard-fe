@@ -12,7 +12,7 @@ const Button = (props: {
       onClick={onClick}
       type={type}
       disabled={disabled}
-      className={`mt-auto h-40 w-full rounded-4  ${disabled ? 'bg-gray-400/80 text-slate-500' : 'bg-slate-400/3 border border-slate-800 text-slate-800'}`}
+      className={`h-40 w-full rounded-4  ${disabled ? 'bg-gray-400/80 text-slate-500' : 'bg-slate-400/3 border border-slate-800 text-slate-800'}`}
     >
       {children}
     </button>
