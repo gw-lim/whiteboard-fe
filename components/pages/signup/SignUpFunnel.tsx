@@ -35,7 +35,7 @@ const SignUpFunnel = () => {
           />
         </Step>
         <Step name={SIGN_UP_STEPS[2]}>
-          <AccountStep handleNextStep={handleNextStep} />
+          <AccountStep handlePrevStep={handlePrevStep} />
         </Step>
       </Funnel>
     </form>
