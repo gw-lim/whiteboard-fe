@@ -39,10 +39,12 @@ const signUp = async (props: {
 };
 
 export const useSignUp = () => {
+  const router = useRouter();
   return useMutation({
     mutationFn: signUp,
     onSuccess: ({ accessToken }) => {
       setToken(accessToken);
+      router.push('/stream');
     },
   });
 };

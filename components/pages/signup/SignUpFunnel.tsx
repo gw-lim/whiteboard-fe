@@ -6,7 +6,7 @@ import AccountStep from './steps/AccountStep';
 import PersonalInfoStep from './steps/PersonalInfoStep';
 import RoleStep from './steps/RoleStep';
 
-const SIGN_UP_STEPS = ['문의자 정보', '사용 정보', '기타 정보'] as const;
+const SIGN_UP_STEPS = ['역할 정보', '사용자 정보', '계정 정보'] as const;
 
 const SignUpFunnel = () => {
   const { Funnel, Step, handleNextStep, handlePrevStep } =
@@ -14,9 +14,20 @@ const SignUpFunnel = () => {
 
   const { handleSubmit } = useFormContext<SignUpFormValues>();
 
-  const signIn = useSignUp();
+  const signUp = useSignUp();
   const handleSignUp: SubmitHandler<SignUpFormValues> = (formValues) => {
-    console.log(formValues);
+    if (!formValues.role) {
+      return;
+    }
+    const parsedFormValues = {
+      username: formValues.username,
+      password: formValues.password,
+      name: formValues.name,
+      role: formValues.role,
+      studentId:
+        formValues.role === 'STUDENT' ? formValues.studentId : undefined,
+    };
+    signUp.mutate(parsedFormValues);
   };
 
   return (

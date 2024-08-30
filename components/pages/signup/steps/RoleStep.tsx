@@ -46,6 +46,7 @@ const RoleButton = (props: {
   return (
     <button
       onClick={onClick}
+      type='button'
       className={`w-full grow rounded-4 border font-500 ${selected ? 'border-blue-600 bg-blue-500/20' : 'border-gray-600 bg-gray-300/20'}`}
     >
       {children}

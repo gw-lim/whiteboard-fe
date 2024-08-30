@@ -5,6 +5,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 export interface SignUpFormValues {
   username: string;
   password: string;
+  passwordCheck: string;
   name: string;
   role: RoleType | undefined;
   studentId?: string;
@@ -15,9 +16,10 @@ const SignUp = () => {
     defaultValues: {
       username: '',
       password: '',
+      passwordCheck: '',
       name: '',
       role: undefined,
-      studentId: undefined,
+      studentId: '',
     },
   });
 

@@ -35,7 +35,7 @@ const SignInForm = () => {
       <InputContainer name='username' control={control}>
         아이디
       </InputContainer>
-      <InputContainer name='password' control={control}>
+      <InputContainer name='password' type='password' control={control}>
         비밀번호
       </InputContainer>
       <button className='mt-12 h-40 w-full rounded-4 border border-slate-800 bg-gray-400/20 text-slate-800'>
