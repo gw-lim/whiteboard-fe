@@ -6,7 +6,7 @@ import RoleStep from './steps/RoleStep';
 const SIGN_UP_STEPS = ['문의자 정보', '사용 정보', '기타 정보'] as const;
 
 const SignUpFunnel = () => {
-  const { Funnel, Step, setStep, handleNextStep, handlePrevStep } =
+  const { Funnel, Step, handleNextStep, handlePrevStep } =
     useFunnel(SIGN_UP_STEPS);
 
   return (
