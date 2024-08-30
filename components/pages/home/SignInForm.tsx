@@ -8,7 +8,7 @@ interface SignInFormValues {
   password: string;
 }
 
-const LoginForm = () => {
+const SignInForm = () => {
   const { control, handleSubmit, setError } = useForm<SignInFormValues>({
     defaultValues: {
       username: '',
@@ -58,4 +58,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default SignInForm;

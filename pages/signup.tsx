@@ -1,11 +1,11 @@
-import SignInForm from '@/components/pages/home/SignInForm';
+import SignUpFunnel from '@/components/pages/signup/SignUpFunnel';
 import Image from 'next/image';
 
-const Home = () => {
+const SignUp = () => {
   return (
     <main className='relative h-[100dvh] w-[100dvw]'>
-      <h1 className='sr-only'>White Board</h1>
-      <SignInForm />
+      <h1 className='sr-only'>White Board 회원가입</h1>
+      <SignUpFunnel />
       <Image
         fill
         alt='바다 사진'
@@ -16,4 +16,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default SignUp;
