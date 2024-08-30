@@ -1,3 +1,4 @@
+import { setToken } from '@/utils/token';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { instance } from './config/default';
 
@@ -10,7 +11,12 @@ const signIn = async (props: { username: string; password: string }) => {
 };
 
 export const useSignIn = () => {
-  return useMutation({ mutationFn: signIn });
+  return useMutation({
+    mutationFn: signIn,
+    onSuccess: ({ accessToken }) => {
+      setToken(accessToken);
+    },
+  });
 };
 
 const signUp = async (props: {
@@ -29,14 +35,18 @@ const signUp = async (props: {
 };
 
 export const useSignUp = () => {
-  return useMutation({ mutationFn: signUp });
+  return useMutation({
+    mutationFn: signUp,
+    onSuccess: ({ accessToken }) => {
+      setToken(accessToken);
+    },
+  });
 };
 
 const checkDuplicateUsername = async (username: string) => {
   const res = await instance.post<{ accessToken: string }>('/signup', {
     username,
   });
-
   if (res.status === 200) {
     return false;
   } else {
