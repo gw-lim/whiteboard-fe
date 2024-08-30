@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import 'styles/globals.css';
 import 'public/fonts/pretendard/font.css';
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider pageProps={pageProps}>
       <Component {...pageProps} />
@@ -21,4 +21,6 @@ export default function App({ Component, pageProps }: AppProps) {
       />
     </Provider>
   );
-}
+};
+
+export default App;

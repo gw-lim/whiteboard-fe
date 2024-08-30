@@ -1,3 +1,4 @@
+import useAxiosInterceptor from '@/hooks/useAxiosInterceptor';
 import {
   HydrationBoundary,
   QueryClient,
@@ -9,6 +10,7 @@ import { ReactNode, useState } from 'react';
 const Provider = (props: { children: ReactNode; pageProps: any }) => {
   const { children, pageProps } = props;
   const [queryClient] = useState(() => new QueryClient());
+  useAxiosInterceptor();
 
   return (
     <QueryClientProvider client={queryClient}>
