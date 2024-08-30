@@ -1,20 +1,39 @@
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { authInstance, instance } from './config/default';
 
-export const getCourses = async () => {
+const getCourses = async () => {
   const { data } = await instance.get<CourseType[]>('/course');
   return data;
 };
 
-export const getCourse = async (courseId: string) => {
+export const useGetPosts = () => {
+  return useQuery({
+    queryKey: ['courses'],
+    queryFn: getCourses,
+  });
+};
+
+const getCourse = async (courseId: string) => {
   const { data } = await instance.get<CourseType>(`/course/${courseId}`);
   return data;
 };
 
-export const createCourse = async (name: string) => {
+export const useGetCourse = (courseId: string) => {
+  return useQuery({
+    queryKey: ['course', courseId],
+    queryFn: () => getCourse(courseId),
+  });
+};
+
+const createCourse = async (name: string) => {
   await authInstance.post('/course', { name });
 };
 
-export const getRegisteredStudents = async (courseId: string) => {
+export const useCreateCourse = () => {
+  return useMutation({ mutationFn: createCourse });
+};
+
+const getRegisteredStudents = async (courseId: string) => {
   const { data } = await authInstance.get<{
     id: string;
     name: string;
@@ -23,12 +42,42 @@ export const getRegisteredStudents = async (courseId: string) => {
   return data;
 };
 
-export const registerCourse = async (courseId: string) => {
+export const useGetRegisteredStudents = (courseId: string) => {
+  return useQuery({
+    queryKey: ['course', courseId, 'students'],
+    queryFn: () => getRegisteredStudents(courseId),
+  });
+};
+
+const registerCourse = async (courseId: string) => {
   await authInstance.post('/course/register', {
     id: courseId,
   });
 };
 
-export const removeRegisteredStudent = async (courseId: string) => {
+export const useRegisterCourse = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: registerCourse,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['user', 'courses'] });
+    },
+  });
+};
+
+const removeRegisteredStudent = async (courseId: string) => {
   await authInstance.delete(`/course/${courseId}/students`);
+  return courseId;
+};
+
+export const useRemoveRegisteredStudent = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: removeRegisteredStudent,
+    onSuccess: (courseId) => {
+      queryClient.invalidateQueries({
+        queryKey: ['course', courseId, 'students'],
+      });
+    },
+  });
 };

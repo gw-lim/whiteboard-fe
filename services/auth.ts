@@ -1,24 +1,38 @@
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { instance } from './config/default';
 
-export const signIn = async (body: { username: string; password: string }) => {
+const signIn = async (props: { username: string; password: string }) => {
   const { data } = await instance.post<{ accessToken: string }>(
     '/signin',
-    body,
+    props,
   );
   return data;
 };
 
-export const signUp = async (body: {
+export const useSignIn = () => {
+  return useMutation({ mutationFn: signIn });
+};
+
+const signUp = async (props: {
   username: string;
   password: string;
   name: string;
   role: RoleType;
   studentId?: string;
 }) => {
-  await instance.post<{ accessToken: string }>('/signup', body);
+  await instance.post<{ accessToken: string }>('/signup', props);
+  const data = await signIn({
+    username: props.username,
+    password: props.password,
+  });
+  return data;
 };
 
-export const checkDuplicateUsername = async (username: string) => {
+export const useSignUp = () => {
+  return useMutation({ mutationFn: signUp });
+};
+
+const checkDuplicateUsername = async (username: string) => {
   const res = await instance.post<{ accessToken: string }>('/signup', {
     username,
   });
@@ -28,4 +42,11 @@ export const checkDuplicateUsername = async (username: string) => {
   } else {
     return true;
   }
+};
+
+export const useCheckDuplicateUsername = (username: string) => {
+  return useQuery({
+    queryKey: ['duplicateUsername', username],
+    queryFn: () => checkDuplicateUsername(username),
+  });
 };
