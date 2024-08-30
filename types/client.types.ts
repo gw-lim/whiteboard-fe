@@ -12,7 +12,7 @@ interface CourseType {
   name: string;
   createdAt: Date;
   updatedAt: Date;
-  professor?: {
+  professor: {
     id: string;
     name: string;
   };

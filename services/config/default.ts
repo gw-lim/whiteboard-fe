@@ -6,7 +6,12 @@ export const instance = axios.create({
   timeout: 20000,
 });
 
-instance.interceptors.request.use(function (config) {
+export const authInstance = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+  timeout: 20000,
+});
+
+authInstance.interceptors.request.use(function (config) {
   const accessToken = Cookies.get('accessToken') ?? '';
 
   if (accessToken) {
