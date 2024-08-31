@@ -7,11 +7,11 @@ const StreamPage = () => {
 
   return (
     <Layout>
-      <div className='flex flex-col gap-16 p-20'>
+      <section className='flex flex-col gap-16 p-20'>
         {posts.map((post) => (
           <Post key={post.id} post={post} />
         ))}
-      </div>
+      </section>
     </Layout>
   );
 };
