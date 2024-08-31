@@ -1,6 +1,5 @@
 import Layout from '@/components/commons/Layout';
 import Post from '@/components/commons/Post';
-import ModalFrame from '@/components/commons/modals/ModalFrame';
 import ProfessorSettingBar from '@/components/pages/course/ProfessorSettingBar';
 import useAuth from '@/hooks/useAuth';
 import { useGetPosts } from '@/services/post';
