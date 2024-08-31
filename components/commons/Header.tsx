@@ -1,3 +1,4 @@
+import { useGetUser } from '@/services/user';
 import { useRouter } from 'next/router';
 
 const Header = () => {
@@ -17,9 +18,16 @@ const Header = () => {
 
   const title = getTitle();
 
+  const { data: user } = useGetUser();
+  const parsedProfile =
+    user?.role === 'PROFESSOR'
+      ? `${user?.name} (교수)`
+      : `${user?.name} (${user?.studentId})`;
+
   return (
-    <header className='z-nav flex items-center border-b border-[#dcdcdc] bg-gray-200/20 pl-28 text-28 text-white'>
-      {title}
+    <header className='z-nav flex items-center justify-between border-b border-[#dcdcdc] bg-gray-200/20 px-28 text-white'>
+      <h1 className='text-28'>{title}</h1>
+      {user && <div className='bg-black/30 p-12 text-14'>{parsedProfile}</div>}
     </header>
   );
 };
