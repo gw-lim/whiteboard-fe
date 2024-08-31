@@ -18,7 +18,7 @@ const Header = () => {
   const title = getTitle();
 
   return (
-    <header className='flex items-center border-b border-[#dcdcdc] pl-28 text-28'>
+    <header className='z-nav flex items-center border-b border-[#dcdcdc] bg-gray-200/20 pl-28 text-28 text-white'>
       {title}
     </header>
   );
