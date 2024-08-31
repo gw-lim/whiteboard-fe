@@ -37,7 +37,7 @@ const useAxiosInterceptor = () => {
       authInstance.interceptors.request.eject(requestInterceptor);
       authInstance.interceptors.response.eject(responseInterceptor);
     };
-  }, []);
+  }, [accessToken]);
 };
 
 export default useAxiosInterceptor;

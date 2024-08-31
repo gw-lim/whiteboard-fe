@@ -8,11 +8,9 @@ const useAuth = () => {
   const [cookie, setCookie, removeCookie] = useCookies([ACCESS_TOKEN, USER]);
 
   const getAuth = () => {
-    const accessToken: string = cookie[ACCESS_TOKEN];
-    const user: UserType = cookie[USER];
-    const isLoggedIn = !!accessToken;
-
-    return { accessToken, user, isLoggedIn };
+    const accessToken: string | undefined = cookie[ACCESS_TOKEN];
+    const user: UserType | undefined = cookie[USER];
+    return { accessToken, user };
   };
 
   const setAuth = async (props: { accessToken: string; user: UserType }) => {
