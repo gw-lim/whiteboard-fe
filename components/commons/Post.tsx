@@ -1,4 +1,5 @@
 import { parseDate } from '@/utils/parseDate';
+import DOMPurify from 'dompurify';
 import Link from 'next/link';
 
 const Post = (props: { post: PostType; showHeader?: boolean }) => {
@@ -19,7 +20,11 @@ const Post = (props: { post: PostType; showHeader?: boolean }) => {
           <div className='ml-auto shrink-0 pb-[2px]'>{parsedDate}</div>
         </Link>
       )}
-      <div>{post.content}</div>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(String(post.content)),
+        }}
+      />
       {!showHeader && <div className='border-t pt-4 text-12'>{parsedDate}</div>}
     </div>
   );
