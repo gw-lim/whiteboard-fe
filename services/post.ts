@@ -41,9 +41,20 @@ export const useCreatePost = (courseId: string) => {
 };
 
 const removePost = async (postId: string) => {
-  await instance.delete<PostType[]>(`/post/${postId}`);
+  await authInstance.delete<PostType[]>(`/post/${postId}`);
 };
 
 export const useRemovePost = () => {
-  return useMutation({ mutationFn: removePost });
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: removePost,
+    onSuccess: () => {
+      toast.success('게시물이 삭제되었습니다.');
+      queryClient.invalidateQueries({ queryKey: ['post'] });
+      queryClient.invalidateQueries({ queryKey: ['user', 'posts'] });
+    },
+    onError: () => {
+      toast.error('게시물이 삭제하는 데에 실패했습니다.');
+    },
+  });
 };

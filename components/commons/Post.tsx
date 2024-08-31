@@ -1,6 +1,10 @@
+import useAuth from '@/hooks/useAuth';
+import { IconX } from '@/public/icons';
+import { useRemovePost } from '@/services/post';
 import { parseDate } from '@/utils/parseDate';
 import DOMPurify from 'dompurify';
 import Link from 'next/link';
+import { SyntheticEvent, useEffect, useLayoutEffect, useState } from 'react';
 
 const Post = (props: { post: PostType; showHeader?: boolean }) => {
   const { post, showHeader = false } = props;
@@ -17,7 +21,10 @@ const Post = (props: { post: PostType; showHeader?: boolean }) => {
           <span className='shrink-0 pb-[3px]'>
             ({post.course.professor.name})
           </span>
-          <div className='ml-auto shrink-0 pb-[2px]'>{parsedDate}</div>
+          <div className='ml-auto flex shrink-0 gap-12 pb-[2px]'>
+            {parsedDate}
+            <DeleteButton id={post.id} />
+          </div>
         </Link>
       )}
       <div
@@ -25,9 +32,43 @@ const Post = (props: { post: PostType; showHeader?: boolean }) => {
           __html: DOMPurify.sanitize(String(post.content)),
         }}
       />
-      {!showHeader && <div className='border-t pt-4 text-12'>{parsedDate}</div>}
+      {!showHeader && (
+        <div className='flex border-t pt-4 text-12'>
+          {parsedDate} <DeleteButton id={post.id} />
+        </div>
+      )}
     </div>
   );
 };
 
 export default Post;
+
+const DeleteButton = (props: { id: string }) => {
+  const { id } = props;
+  const removePost = useRemovePost();
+
+  const handleDelete = (e: SyntheticEvent) => {
+    e.preventDefault();
+    const value = confirm('게시물을 삭제하시겠습니까?');
+    if (!value) {
+      return;
+    }
+    removePost.mutate(id);
+  };
+
+  const { getAuth } = useAuth();
+  const { user } = getAuth();
+  const [isProfessor, setIsProfessor] = useState(false);
+  useLayoutEffect(() => {
+    setIsProfessor(user?.role === 'PROFESSOR');
+  }, [user]);
+  return (
+    <>
+      {isProfessor && (
+        <button className='ml-auto' onClick={handleDelete}>
+          <IconX stroke='#fff' />
+        </button>
+      )}
+    </>
+  );
+};
