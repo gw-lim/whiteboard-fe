@@ -9,11 +9,11 @@ import { useEffect, useState } from 'react';
 
 const CoursePage = () => {
   const router = useRouter();
-  const courseId = Array.isArray(router.query.id)
-    ? router.query.id[0]
-    : router.query.id;
+  const courseId =
+    (Array.isArray(router.query.id) ? router.query.id[0] : router.query.id) ??
+    '';
 
-  const { data: posts } = useGetPosts(courseId ?? '');
+  const { data: posts } = useGetPosts(courseId);
 
   const { getAuth } = useAuth();
   const { user } = getAuth();

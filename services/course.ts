@@ -53,6 +53,7 @@ export const useGetRegisteredStudents = (courseId: string) => {
     queryKey: ['course', courseId, 'students'],
     queryFn: () => getRegisteredStudents(courseId),
     initialData: [],
+    enabled: !!courseId,
   });
 };
 
@@ -72,8 +73,12 @@ export const useRegisterCourse = () => {
   });
 };
 
-const removeRegisteredStudent = async (courseId: string) => {
-  await authInstance.delete(`/course/${courseId}/students`);
+const removeRegisteredStudent = async (props: {
+  courseId: string;
+  studentId: string;
+}) => {
+  const { courseId, studentId } = props;
+  await authInstance.delete(`/course/${courseId}/students?id=${studentId}`);
   return courseId;
 };
 

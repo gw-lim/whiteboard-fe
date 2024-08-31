@@ -7,10 +7,10 @@ import { useEffect, useState } from 'react';
 const Header = () => {
   const router = useRouter();
   const currPath = router.pathname;
-  const courseId = Array.isArray(router.query.id)
-    ? router.query.id[0]
-    : router.query.id;
-  const { data: course } = useGetCourse(courseId ?? '');
+  const courseId =
+    (Array.isArray(router.query.id) ? router.query.id[0] : router.query.id) ??
+    '';
+  const { data: course } = useGetCourse(courseId);
 
   const getTitle = () => {
     switch (currPath) {
