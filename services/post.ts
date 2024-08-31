@@ -11,6 +11,7 @@ export const useGetPosts = (courseId: string) => {
     queryKey: ['post', courseId],
     queryFn: () => getPosts(courseId),
     initialData: [],
+    enabled: !!courseId,
   });
 };
 
