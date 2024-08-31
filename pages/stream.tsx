@@ -1,5 +1,7 @@
+import Layout from '@/components/commons/Layout';
+
 const Stream = () => {
-  return <div>stream</div>;
+  return <Layout>stream</Layout>;
 };
 
 export default Stream;
