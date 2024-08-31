@@ -2,7 +2,7 @@ import Layout from '@/components/commons/Layout';
 import Course from '@/components/commons/course';
 import { useGetUserCourses } from '@/services/user';
 
-const CoursePage = () => {
+const MyCoursesPage = () => {
   const { data: courses } = useGetUserCourses();
 
   return (
@@ -16,4 +16,4 @@ const CoursePage = () => {
   );
 };
 
-export default CoursePage;
+export default MyCoursesPage;

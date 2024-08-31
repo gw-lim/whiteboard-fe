@@ -1,3 +1,4 @@
+import { INITIAL_COURSE } from '@/contants/initialData';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { authInstance, instance } from './config/default';
 
@@ -24,6 +25,7 @@ export const useGetCourse = (courseId: string) => {
     queryKey: ['course', courseId],
     queryFn: () => getCourse(courseId),
     initialData: INITIAL_COURSE,
+    enabled: !!courseId,
   });
 };
 

@@ -1,4 +1,4 @@
-const INITIAL_COURSE = {
+export const INITIAL_COURSE = {
   id: '',
   name: '',
   createdAt: '',
