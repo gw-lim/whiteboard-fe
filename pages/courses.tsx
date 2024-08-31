@@ -1,4 +1,5 @@
 import Layout from '@/components/commons/Layout';
+import ProfessorSettingBar from '@/components/pages/course/ProfessorSettingBar';
 import Course from '@/components/pages/courses/Course';
 import useAuth from '@/hooks/useAuth';
 import { useGetCourses } from '@/services/course';
@@ -20,6 +21,7 @@ const CoursesPage = () => {
   return (
     <Layout>
       <div className='flex flex-col gap-16 p-20'>
+        {isProfessor && <ProfessorSettingBar course />}
         {courses.map((course) => (
           <Course
             key={course.id}

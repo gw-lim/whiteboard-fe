@@ -24,7 +24,7 @@ const CoursePage = () => {
   return (
     <Layout>
       <div className='flex flex-col gap-16 p-20'>
-        {showSettingBar && <ProfessorSettingBar />}
+        {showSettingBar && <ProfessorSettingBar student post />}
         <section className='flex flex-col gap-16'>
           {posts.map((post) => (
             <Post key={post.id} post={post} />
