@@ -1,7 +1,7 @@
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 
 const usePreventScroll = () => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = 'unset';

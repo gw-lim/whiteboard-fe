@@ -1,7 +1,7 @@
 import { authInstance } from '@/services/config/default';
 import { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import useAuth from './useAuth';
 
@@ -10,7 +10,7 @@ const useAxiosInterceptor = () => {
   const { getAuth, removeAuth } = useAuth();
   const { accessToken } = getAuth();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const requestInterceptor = authInstance.interceptors.request.use(
       (config) => {
         if (accessToken) {
