@@ -36,7 +36,17 @@ const createCourse = async (name: string) => {
 };
 
 export const useCreateCourse = () => {
-  return useMutation({ mutationFn: createCourse });
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: createCourse,
+    onSuccess: () => {
+      toast.success('강의가 생성되었습니다.');
+      queryClient.invalidateQueries({ queryKey: ['courses'] });
+    },
+    onError: () => {
+      toast.error('강의가 생성에 실패했습니다.');
+    },
+  });
 };
 
 const getRegisteredStudents = async (courseId: string) => {

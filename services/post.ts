@@ -35,7 +35,7 @@ export const useCreatePost = (courseId: string) => {
       queryClient.invalidateQueries({ queryKey: ['user', 'posts'] });
     },
     onError: () => {
-      toast.error('게시물이 게시하는 데에 실패하였습니다.');
+      toast.error('게시물이 게시하는 데에 실패했습니다.');
     },
   });
 };
