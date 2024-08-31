@@ -1,4 +1,5 @@
 import Provider from '@/components/commons/Provider';
+import useRedirect from '@/hooks/useRedirect';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { Toaster } from 'react-hot-toast';
@@ -6,6 +7,7 @@ import 'styles/globals.css';
 import 'public/fonts/pretendard/font.css';
 
 const App = ({ Component, pageProps }: AppProps) => {
+  useRedirect();
   return (
     <Provider pageProps={pageProps}>
       <Component {...pageProps} />
