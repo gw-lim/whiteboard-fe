@@ -1,5 +1,7 @@
 import { INITIAL_COURSE } from '@/contants/initialData';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
+import toast from 'react-hot-toast';
 import { authInstance, instance } from './config/default';
 
 const getCourses = async () => {
@@ -69,6 +71,12 @@ export const useRegisterCourse = () => {
     mutationFn: registerCourse,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['user', 'courses'] });
+      toast.success('수강신청 되었습니다.');
+    },
+    onError: (err: AxiosError) => {
+      if (err.status === 403) {
+        toast.error('학생만 수강신청을 할 수 있습니다.');
+      }
     },
   });
 };
