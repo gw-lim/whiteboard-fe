@@ -1,13 +1,14 @@
+import useAuth from '@/hooks/useAuth';
 import { IconDoubleArrowLeft, IconLogo } from '@/public/icons';
-import { removeToken } from '@/utils/token';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
 
 const NavBar = () => {
   const router = useRouter();
+  const { removeAuth } = useAuth();
   const handleLogout = () => {
-    removeToken();
+    removeAuth();
     router.push('/');
   };
 

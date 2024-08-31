@@ -1,20 +1,18 @@
 import { authInstance } from '@/services/config/default';
-import { removeToken } from '@/utils/token';
 import { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 import { useLayoutEffect } from 'react';
-import { Cookies } from 'react-cookie';
 import toast from 'react-hot-toast';
-
-const cookies = new Cookies();
+import useAuth from './useAuth';
 
 const useAxiosInterceptor = () => {
   const router = useRouter();
+  const { getAuth, removeAuth } = useAuth();
+  const { accessToken } = getAuth();
 
   useLayoutEffect(() => {
     const requestInterceptor = authInstance.interceptors.request.use(
       (config) => {
-        const accessToken = cookies.get('accessToken') ?? '';
         if (accessToken) {
           config.headers.Authorization = `Bearer ${accessToken}`;
         }
@@ -28,7 +26,7 @@ const useAxiosInterceptor = () => {
         console.error(error);
 
         if (error.status === 401) {
-          removeToken();
+          removeAuth();
           router.push('/');
           toast.error('다시 로그인 해주세요.');
         }

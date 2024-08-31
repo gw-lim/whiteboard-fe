@@ -1,10 +1,10 @@
-import { setToken } from '@/utils/token';
+import useAuth from '@/hooks/useAuth';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 import { instance } from './config/default';
 
 const signIn = async (props: { username: string; password: string }) => {
-  const { data } = await instance.post<{ accessToken: string }>(
+  const { data } = await instance.post<{ accessToken: string; user: UserType }>(
     '/auth/signin',
     props,
   );
@@ -13,10 +13,11 @@ const signIn = async (props: { username: string; password: string }) => {
 
 export const useSignIn = (onError: () => void) => {
   const router = useRouter();
+  const { setAuth } = useAuth();
   return useMutation({
     mutationFn: signIn,
-    onSuccess: ({ accessToken }) => {
-      setToken(accessToken);
+    onSuccess: (data) => {
+      setAuth(data);
       router.push('/stream');
     },
     onError,
@@ -40,10 +41,11 @@ const signUp = async (props: {
 
 export const useSignUp = () => {
   const router = useRouter();
+  const { setAuth } = useAuth();
   return useMutation({
     mutationFn: signUp,
-    onSuccess: ({ accessToken }) => {
-      setToken(accessToken);
+    onSuccess: (data) => {
+      setAuth(data);
       router.push('/stream');
     },
   });
