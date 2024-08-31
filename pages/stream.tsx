@@ -2,7 +2,7 @@ import Layout from '@/components/commons/Layout';
 import Post from '@/components/commons/Post';
 import { useGetUserPosts } from '@/services/user';
 
-const Stream = () => {
+const StreamPage = () => {
   const { data: posts } = useGetUserPosts();
 
   return (
@@ -16,4 +16,4 @@ const Stream = () => {
   );
 };
 
-export default Stream;
+export default StreamPage;

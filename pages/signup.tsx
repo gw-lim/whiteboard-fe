@@ -12,7 +12,7 @@ export interface SignUpFormValues {
   studentId?: string;
 }
 
-const SignUp = () => {
+const SignUpPage = () => {
   usePreventScroll();
   const methods = useForm<SignUpFormValues>({
     defaultValues: {
@@ -41,4 +41,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpPage;

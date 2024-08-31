@@ -2,7 +2,7 @@ import SignInForm from '@/components/pages/home/SignInForm';
 import usePreventScroll from '@/hooks/usePreventScroll';
 import Image from 'next/image';
 
-const Home = () => {
+const HomePage = () => {
   usePreventScroll();
   return (
     <main className='relative h-[100dvh] w-[100dvw]'>
@@ -18,4 +18,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
