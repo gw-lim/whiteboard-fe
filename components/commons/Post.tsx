@@ -4,7 +4,7 @@ import { useRemovePost } from '@/services/post';
 import { parseDate } from '@/utils/parseDate';
 import DOMPurify from 'dompurify';
 import Link from 'next/link';
-import { SyntheticEvent, useEffect, useLayoutEffect, useState } from 'react';
+import { SyntheticEvent, useLayoutEffect, useState } from 'react';
 
 const Post = (props: { post: PostType; showHeader?: boolean }) => {
   const { post, showHeader = false } = props;
