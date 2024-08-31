@@ -23,4 +23,5 @@ interface PostType {
   content: string;
   createdAt: string;
   updatedAt: string;
+  course: CourseType;
 }
