@@ -45,7 +45,9 @@ const Header = () => {
   return (
     <header className='z-nav flex items-center justify-between border-b border-[#dcdcdc] bg-gray-200/20 px-28 text-white'>
       <h1 className='line-clamp-1 text-28'>{title}</h1>
-      <div className='bg-black/25 p-12 text-14'>{parsedProfile}</div>
+      <div className='shrink-0 break-keep bg-black/25 p-12'>
+        {parsedProfile}
+      </div>
     </header>
   );
 };

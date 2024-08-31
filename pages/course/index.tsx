@@ -1,5 +1,5 @@
+import Course from '@/components/commons/Course';
 import Layout from '@/components/commons/Layout';
-import Course from '@/components/commons/course';
 import { useGetUserCourses } from '@/services/user';
 
 const MyCoursesPage = () => {
