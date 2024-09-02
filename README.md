@@ -1,40 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Whiteboard | 온라인 교육 플랫폼
 
-## Getting Started
+교수자와 학생이 강의와 게시물을 통해 상호작용할 수 있는 간단한 플랫폼입니다.
 
-First, run the development server:
+https://whiteboard-gwlim.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# 기술 스택
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 프론트엔드
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<div> 
+  <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/nextjs-000000?style=for-the-badge&logo=nextdotjs&logoColor=white">
+  <img src="https://img.shields.io/badge/React-61D9FB?style=for-the-badge&logo=react&logoColor=white">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white">
+  <img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white">
+</div>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### 백엔드
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<div> 
+  <img src="https://img.shields.io/badge/javascript-EFD81A?style=for-the-badge&logo=javascript&logoColor=white">
+  <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white">
+  <img src="https://img.shields.io/badge/Postgresql-31648C?style=for-the-badge&logo=postgresql&logoColor=white">
+  <img src="https://img.shields.io/badge/Amazon_aws-222F3E?style=for-the-badge&logo=amazon&logoColor=white">
+</div>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# 페이지
 
-## Learn More
+### 로그인
 
-To learn more about Next.js, take a look at the following resources:
+### 회원가입
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 활동스트림
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+수강신청 한 강의들의 게시물을 시간 순으로 모아볼 수 있는 페이지
 
-## Deploy on Vercel
+### 코스
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+수강신청 한 강의들을 모아볼 수 있는 페이지
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 모든 강의
+
+모든 강의들을 모아보고 수강신청 할 수 있는 페이지
+
+### 교수 권한 기능들
