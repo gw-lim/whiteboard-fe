@@ -13,7 +13,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className='z-nav row-span-2 flex flex-col border-r border-[#dcdcdc] bg-gray-200/20'>
+    <nav className='z-nav row-span-2 flex flex-col border-r border-[#dcdcdc] bg-gray-200/20 md:hidden'>
       <div className='flex h-112 items-center gap-4 pl-12'>
         <Link href='/stream'>
           <IconLogo />

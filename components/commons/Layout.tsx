@@ -8,7 +8,7 @@ const Layout = (props: { children: ReactNode }) => {
   const { children } = props;
   usePreventScroll();
   return (
-    <div className='relative grid h-[100dvh] w-[100dvw] grid-cols-[240px_1fr] grid-rows-[112px_1fr]'>
+    <div className='relative grid h-[100dvh] w-[100dvw] grid-cols-[240px_1fr] grid-rows-[112px_1fr] md:grid-cols-1 md:grid-rows-[92px_1fr]'>
       <Image
         src='/images/main.jpg'
         fill

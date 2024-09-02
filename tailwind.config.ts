@@ -58,6 +58,17 @@ const config: Config = {
       24: '2.4rem',
       full: '9999px',
     },
+    extend: {
+      keyframes: {
+        slideDown: {
+          '0%': { opacity: '0', transform: 'translateY(-20%)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        slideDown: 'slideDown 0.1s ease-in-out',
+      },
+    },
     plugins: [],
   },
 };
