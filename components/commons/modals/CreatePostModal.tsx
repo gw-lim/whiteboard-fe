@@ -19,11 +19,9 @@ const CreatePostModal = (props: { closeModal: () => void }) => {
       toolbar: {
         container: [
           [{ size: ['small', false, 'large', 'huge'] }],
-          [{ header: [1, 2, 3, 4, 5, 6, false] }],
           ['bold', 'italic', 'underline', 'strike'],
           [{ list: 'ordered' }, { list: 'bullet' }, { list: 'check' }],
           [{ color: ['#000', '#ff0000', '#0b33ff'] }, { background: [] }],
-          [{ align: [] }],
           ['clean'],
         ],
       },
@@ -42,16 +40,16 @@ const CreatePostModal = (props: { closeModal: () => void }) => {
 
   return (
     <ModalFrame closeModal={closeModal}>
-      <div className='flex h-400 w-400 flex-col justify-between overflow-y-auto'>
+      <div className='flex h-400 w-400 flex-col justify-between overflow-y-auto md:w-[80dvw]'>
         <ReactQuill
           theme='snow'
           modules={modules}
           onChange={setContent}
-          style={{ width: '100%', height: '300px' }}
+          style={{ width: '100%', height: '280px' }}
         />
         <button
           onClick={handlePost}
-          className='rounded-4 border border-gray-600/80 bg-gray-500/10 p-8'
+          className='w-full rounded-4 border border-gray-600/80 bg-gray-500/10 p-8'
         >
           게시하기
         </button>

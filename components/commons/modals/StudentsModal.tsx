@@ -18,7 +18,7 @@ const StudentsModal = (props: { closeModal: () => void }) => {
 
   return (
     <ModalFrame closeModal={closeModal}>
-      <div className='h-300 w-300 overflow-y-auto'>
+      <div className='h-300 w-300 overflow-y-auto md:w-[80dvw]'>
         {students.map((student) => (
           <Student
             key={student.id}

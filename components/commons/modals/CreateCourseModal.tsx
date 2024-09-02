@@ -19,7 +19,7 @@ const CreateCourseModal = (props: { closeModal: () => void }) => {
 
   return (
     <ModalFrame closeModal={closeModal}>
-      <form className='flex h-100 w-300 flex-col justify-between gap-12'>
+      <form className='flex h-100 w-300 flex-col justify-between gap-12 md:w-[80dvw]'>
         <input
           onChange={handleChange}
           placeholder='강의명을 작성해주세요.'
