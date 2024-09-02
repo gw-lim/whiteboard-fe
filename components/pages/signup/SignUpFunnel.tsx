@@ -33,7 +33,7 @@ const SignUpFunnel = () => {
   return (
     <form
       onSubmit={handleSubmit(handleSignUp)}
-      className='absolute left-[10%] top-1/2 z-floating h-360 w-400 -translate-y-1/2 bg-white/70 px-12 py-32'
+      className='absolute left-[10%] top-1/2 z-floating h-360 w-400 -translate-y-1/2 bg-white/70 px-12 py-32 md:left-[5%] md:w-[90%]'
     >
       <Funnel>
         <Step name={SIGN_UP_STEPS[0]}>

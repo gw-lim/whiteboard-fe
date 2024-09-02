@@ -30,7 +30,7 @@ const SignInForm = () => {
   return (
     <form
       onSubmit={handleSubmit(handleSignIn)}
-      className='absolute left-[10%] top-1/2 z-floating h-320 w-400 -translate-y-1/2 bg-white/70 px-12 pt-32'
+      className='absolute left-[10%] top-1/2 z-floating h-320 w-400 -translate-y-1/2 bg-white/70 px-12 pt-32 md:left-[5%] md:w-[90%]'
     >
       <InputContainer name='username' control={control}>
         아이디
