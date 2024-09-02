@@ -56,7 +56,7 @@ const Header = () => {
           </div>
           <button
             onClick={() => setOpenMenu((prev) => !prev)}
-            className='w-24 shrink-0'
+            className='hidden w-24 shrink-0 md:block'
           >
             <IconHamburger />
           </button>
