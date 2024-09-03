@@ -14,7 +14,7 @@ https://whiteboard-gwlim.vercel.app/
 
 # 🛠️ 기술 스택
 
-### 프론트엔드
+### [프론트엔드](https://github.com/gw-lim/whiteboard-fe)
 
 <div> 
   <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
@@ -24,7 +24,7 @@ https://whiteboard-gwlim.vercel.app/
   <img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white">
 </div>
 
-### 백엔드
+### [백엔드](https://github.com/gw-lim/whiteboard-be)
 
 <div> 
   <img src="https://img.shields.io/badge/javascript-EFD81A?style=for-the-badge&logo=javascript&logoColor=white">
@@ -32,14 +32,6 @@ https://whiteboard-gwlim.vercel.app/
   <img src="https://img.shields.io/badge/Postgresql-31648C?style=for-the-badge&logo=postgresql&logoColor=white">
   <img src="https://img.shields.io/badge/Amazon_aws-222F3E?style=for-the-badge&logo=amazon&logoColor=white">
 </div>
-
-# 💻 DB 스키마 구조
-
-<img width="700" alt="DB 스키마" src="https://github.com/user-attachments/assets/1899639c-ede5-4cdd-b96d-bb7376009505">
-
-# 🗂️ 사이트 맵
-
-<img width="700" alt="사이트 맵" src="https://github.com/user-attachments/assets/22b1ce01-26e3-4283-b5f7-694d2b1abb68">
 
 # 📄 페이지
 
@@ -82,3 +74,12 @@ https://whiteboard-gwlim.vercel.app/
     </tr>
   </tbody>
 </table>
+
+
+# 💻 DB 스키마 구조
+
+<img width="700" alt="DB 스키마" src="https://github.com/user-attachments/assets/1899639c-ede5-4cdd-b96d-bb7376009505">
+
+# 🗂️ 사이트 맵
+
+<img width="700" alt="사이트 맵" src="https://github.com/user-attachments/assets/22b1ce01-26e3-4283-b5f7-694d2b1abb68">
