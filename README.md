@@ -1,10 +1,18 @@
-# Whiteboard | 온라인 교육 플랫폼
+# ✏️ Whiteboard | 온라인 교육 플랫폼
 
 교수자와 학생이 강의와 게시물을 통해 상호작용할 수 있는 간단한 교육 플랫폼입니다.
 
 https://whiteboard-gwlim.vercel.app/
 
-# 기술 스택
+테스트 계정
+- 교수 계정
+  - username: professor
+  - password: asdf1234
+- 학생 계정
+  - username: student
+  - password: asdf1234
+
+# 🛠️ 기술 스택
 
 ### 프론트엔드
 
@@ -25,7 +33,15 @@ https://whiteboard-gwlim.vercel.app/
   <img src="https://img.shields.io/badge/Amazon_aws-222F3E?style=for-the-badge&logo=amazon&logoColor=white">
 </div>
 
-# 페이지
+# 💻 DB 스키마 구조
+
+<img width="700" alt="DB 스키마" src="https://github.com/user-attachments/assets/1899639c-ede5-4cdd-b96d-bb7376009505">
+
+# 🗂️ 사이트 맵
+
+<img width="700" alt="사이트 맵" src="https://github.com/user-attachments/assets/22b1ce01-26e3-4283-b5f7-694d2b1abb68">
+
+# 📄 페이지
 
 ### 로그인
 
